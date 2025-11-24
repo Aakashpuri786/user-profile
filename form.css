@@ -1,0 +1,87 @@
+
+        body {
+            background-color: #F5F3E7;
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            color: #3A2F1F;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .profile-container {
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .top-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 20px;
+            background: #E6CBA8;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .bottom-section {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .left-box, .right-box {
+            flex: 1;
+            padding: 20px;
+            background: #BFA980;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+
+        a {
+            color: #8C6E4E;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Form */
+        #editForm {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #b59b72;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #8C6E4E;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        #editBtn {
+            width: 120px;
+        }
