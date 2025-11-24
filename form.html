@@ -1,11 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>form</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editable Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="form.css">
 </head>
+
 <body>
-    
+
+<div class="profile-container">
+
+    <!-- Display Section -->
+    <div id="displaySection">
+        <div class="top-section">
+            <img id="profileImage" src="aakash.png" class="profile-img" alt="Profile Photo">
+
+            <div class="info">
+                <h2 id="displayName">Aakash Puri</h2>
+                <h3 id="displayEmail">aakash.puri.online@gmail.com</h3>
+                <h3 id="displayContact">9748848620</h3>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="left-box">
+                <h3>Website: <a id="displayWebsite" href="#">puri.com</a></h3>
+                <h3>LinkedIn: <a id="displayLinkedIn" href="#">Aakash puri
+                </a></h3>
+                <h3>Facebook: <a id="displayFacebook" href="#">Aakash puree</a></h3>
+            </div>
+            <div class="right-box">
+                <h3>Occupation: <span id="displayOccupation">Student</span></h3>
+                <h3>Hobby: <span id="displayHobby">Coding , making new ideas</span></h3>
+            </div>
+        </div>
+
+        <button id="editBtn" onclick="toggleForm()">Edit</button>
+    </div>
+
+    <!-- Form Section -->
+    <form id="editForm" style="display:none;" onsubmit="saveData(event)">
+        <h2>Edit Your Profile</h2>
+
+        <label>Name:</label>
+        <input type="text" id="name" required>
+
+        <label>Email:</label>
+        <input type="email" id="email" required>
+
+        <label>Contact:</label>
+        <input type="text" id="contact" required>
+
+        <label>Website Link:</label>
+        <input type="url" id="website">
+
+        <label>LinkedIn Link:</label>
+        <input type="url" id="linkedin">
+
+        <label>Facebook Link:</label>
+        <input type="url" id="facebook">
+
+        <label>Occupation:</label>
+        <input type="text" id="occupation">
+
+        <label>Hobby:</label>
+        <input type="text" id="hobby">
+
+        <label>Upload Image:</label>
+        <input type="file" id="imageUpload" accept="image/*">
+
+        <button type="submit">Save</button>
+    </form>
+
+</div>
+
+<script>
+function toggleForm() {
+    document.getElementById("editForm").style.display = "block";
+    document.getElementById("displaySection").style.display = "none";
+}
+
+function saveData(event) {
+    event.preventDefault();
+
+    document.getElementById("displayName").textContent = document.getElementById("name").value;
+    document.getElementById("displayEmail").textContent = document.getElementById("email").value;
+    document.getElementById("displayContact").textContent = document.getElementById("contact").value;
+
+    const website = document.getElementById("website").value;
+    document.getElementById("displayWebsite").textContent = website;
+    document.getElementById("displayWebsite").href = website;
+
+    const linkedin = document.getElementById("linkedin").value;
+    document.getElementById("displayLinkedIn").textContent = linkedin;
+    document.getElementById("displayLinkedIn").href = linkedin;
+
+    const facebook = document.getElementById("facebook").value;
+    document.getElementById("displayFacebook").textContent = facebook;
+    document.getElementById("displayFacebook").href = facebook;
+
+    document.getElementById("displayOccupation").textContent = document.getElementById("occupation").value;
+    document.getElementById("displayHobby").textContent = document.getElementById("hobby").value;
+
+    const imgFile = document.getElementById("imageUpload").files[0];
+    if (imgFile) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById("profileImage").src = e.target.result;
+        }
+        reader.readAsDataURL(imgFile);
+    }
+
+    document.getElementById("editForm").reset();
+    document.getElementById("editForm").style.display = "none";
+    document.getElementById("displaySection").style.display = "block";
+}
+</script>
+
 </body>
 </html>
